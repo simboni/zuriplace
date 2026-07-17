@@ -23,9 +23,15 @@
 	try_files {path} {path}.html {path}/
 	file_server
 
-	header {
-		Cache-Control "public, max-age=3600"
-		X-Content-Type-Options "nosniff"
-		Referrer-Policy "strict-origin-when-cross-origin"
-	}
+	# Images are the bulk of the bytes and rarely change — cache a week.
+	@img path /assets/img/*
+	header @img Cache-Control "public, max-age=604800"
+
+	# Markup, CSS and JS must revalidate so a new deploy shows up right away.
+	# Caddy sends ETags, so unchanged files still return a cheap 304.
+	@dynamic not path /assets/img/*
+	header @dynamic Cache-Control "no-cache"
+
+	header X-Content-Type-Options "nosniff"
+	header Referrer-Policy "strict-origin-when-cross-origin"
 }
