@@ -41,6 +41,17 @@ assets/js/booking.js  Room data + 4-step booking engine (WhatsApp/email hand-off
 assets/img/           Curated photography from the original site
 ```
 
+## Deployment
+
+Every push to `main` (or the redesign branch) runs
+`.github/workflows/deploy.yml`, which publishes the site to the `gh-pages`
+branch. **One-time setup**: in the repo go to **Settings → Pages → Build and
+deployment**, set *Source* to **Deploy from a branch** and pick
+**`gh-pages` / (root)**. The site then serves at
+<https://simboni.github.io/zuriplace/> and republishes automatically on every
+push. For the custom domain (zuriplaceresort.com), add it under the same
+Pages settings and point the domain's DNS at GitHub Pages.
+
 ## Run locally
 
 No build step. Serve the folder with any static server:
