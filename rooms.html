@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rooms &amp; Suites — Zuri Hotels &amp; Resorts</title>
+  <meta name="description" content="Nine room categories across Zuri properties in Kenya and Uganda — from the Executive Suite at KES 2,500 to the Presidential Suite. Book instantly via WhatsApp.">
+  <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Space+Grotesk:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="brand" href="index.html">
+        <img src="assets/img/logo.png" alt="Zuri Hotels logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="rooms.html" aria-current="page">Rooms</a></li>
+        <li><a href="restaurant.html">Restaurant</a></li>
+        <li><a href="resort.html">Zuri Poa / Resort</a></li>
+        <li><a href="safari.html">Eden Safari Uganda</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">☀</button>
+        <button class="btn btn-mint" data-book>Book a stay</button>
+        <button class="nav-burger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="hero-media">
+        <img src="assets/img/room-whitehouse-large.jpeg" alt="Executive Whitehouse Suite interior" fetchpriority="high">
+      </div>
+      <div class="wrap">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Rooms</span></nav>
+        <h1 class="display-xl">Executive, luxurious<br><span class="serif-i">&amp; elegant rooms</span></h1>
+        <p class="lede mt-1" style="color:rgba(248,244,236,.75)">Nine categories across six properties — every one with 24/7 room service, spotless housekeeping and a bed worth writing home about.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow"><span class="no">01</span> Find your fit</p>
+            <h2 class="display-l mt-1">Explore room <span class="serif-i">options</span></h2>
+          </div>
+        </div>
+
+        <div class="filter-row reveal" role="group" aria-label="Filter rooms">
+          <button class="chip active" data-filter-for="all-rooms" data-loc="">All properties</button>
+          <button class="chip" data-filter-for="all-rooms" data-loc="kanduyi">Zuri Place Kanduyi</button>
+          <button class="chip" data-filter-for="all-rooms" data-loc="resort">Zuri Resort</button>
+          <button class="chip" data-filter-for="all-rooms" data-loc="poa">Zuri Poa</button>
+          <button class="chip" data-filter-for="all-rooms" data-loc="poa-airbnb">Airbnb stays</button>
+          <button class="chip" data-filter-for="all-rooms" data-loc="eden">Eden Safari Uganda</button>
+          <button class="chip" data-filter-for="all-rooms" data-sort="low">Price ↑</button>
+          <button class="chip" data-filter-for="all-rooms" data-sort="high">Price ↓</button>
+        </div>
+
+        <div class="rooms-grid" data-rooms-grid id="all-rooms"></div>
+      </div>
+    </section>
+
+    <!-- Featured suite -->
+    <section class="section paper-section">
+      <div class="wrap split">
+        <div class="split-media reveal">
+          <span class="stamp">Top · Pick · Suite ·</span>
+          <img class="main-img" src="assets/img/room-whitehouse-large.jpeg" alt="Executive Whitehouse Suite" loading="lazy">
+          <img class="float-img" src="assets/img/tuti.jpeg" alt="Suite lounge with chesterfield sofas" loading="lazy">
+        </div>
+        <div class="reveal" style="--rd:.1s">
+          <p class="eyebrow"><span class="no">02</span> Signature stay</p>
+          <h2 class="display-l mt-1">The Executive <span class="serif-i" style="color:var(--clay)">Whitehouse Suite</span></h2>
+          <p class="lede mt-1">Our most requested key. A king bed, a private lounge with tufted chesterfields, and space to think — the suite that made Zuri Place famous, from KES 6,000 a night.</p>
+          <div class="feature-list">
+            <div class="feature-item"><span class="ico">🛏</span><div><h3>1 king bed · sleeps 2</h3><p>Deep mattress, crisp linen, black-out curtains.</p></div></div>
+            <div class="feature-item"><span class="ico">🛋</span><div><h3>Private lounge</h3><p>A separate sitting room for meetings or slow mornings.</p></div></div>
+            <div class="feature-item"><span class="ico">🍽</span><div><h3>24/7 room service</h3><p>The full restaurant menu, delivered to your door.</p></div></div>
+          </div>
+          <div class="hero-actions">
+            <button class="btn btn-ink" data-book data-room="whitehouse">Book the Whitehouse <span class="arr">→</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section big-cta">
+      <span class="ghost-word" aria-hidden="true">goodnight</span>
+      <div class="wrap reveal">
+        <h2 class="display-l">Not sure which room?<br><span class="serif-i">Talk to us.</span></h2>
+        <div class="hero-actions" style="justify-content:center">
+          <a class="btn btn-mint" href="https://wa.me/254720351045" target="_blank" rel="noopener">WhatsApp reservations</a>
+          <a class="btn btn-ghost" href="contact.html">Contact us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <img src="assets/img/logo.png" alt="Zuri Hotels logo">
+        <p>Boutique hotels, resorts and restaurants across Bungoma, Kenya and Malaba, Uganda. Open around the clock, every day of the year.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="rooms.html">Rooms &amp; suites</a></li>
+          <li><a href="restaurant.html">Restaurant &amp; lounge</a></li>
+          <li><a href="resort.html">Zuri Poa / Resort</a></li>
+          <li><a href="safari.html">Eden Safari Uganda</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kenya</h4>
+        <ul>
+          <li>Zuri Place — Kanduyi,<br>Bungoma–Malaba Highway</li>
+          <li>Zuri Resort &amp; Zuri Poa — Makutano,<br>Bungoma–Chwele Road</li>
+          <li><a href="tel:+254720351045">+254 720 351 045</a></li>
+          <li><a href="tel:+254710715756">+254 710 715 756</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Uganda</h4>
+        <ul>
+          <li>Zuri Eden Safaris / Zuri Annex —<br>Obore Road, Malaba</li>
+          <li><a href="tel:+256764439787">+256 764 439 787</a></li>
+          <li><a href="tel:+256740898151">+256 740 898 151</a></li>
+          <li><a href="mailto:info@zuriplaceresort.com">info@zuriplaceresort.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© <span data-year>2026</span> Zuri Hotels &amp; Resorts · All rights reserved.</span>
+      <div class="socials">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="X (Twitter)">𝕏</a>
+        <a href="https://wa.me/254720351045" aria-label="WhatsApp" target="_blank" rel="noopener">✆</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/booking.js" defer></script>
+</body>
+</html>
