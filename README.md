@@ -43,14 +43,44 @@ assets/img/           Curated photography from the original site
 
 ## Deployment
 
-Every push to `main` (or the redesign branch) runs
-`.github/workflows/deploy.yml`, which publishes the site to the `gh-pages`
-branch. **One-time setup**: in the repo go to **Settings → Pages → Build and
-deployment**, set *Source* to **Deploy from a branch** and pick
-**`gh-pages` / (root)**. The site then serves at
-<https://simboni.github.io/zuriplace/> and republishes automatically on every
-push. For the custom domain (zuriplaceresort.com), add it under the same
-Pages settings and point the domain's DNS at GitHub Pages.
+### Railway (primary — serves zuriplaceresort.com)
+
+The site ships as a tiny [Caddy](https://caddyserver.com) container
+(`Dockerfile` + `Caddyfile`) so Railway can build and serve it with no build
+step and no runtime dependencies. Caddy binds to Railway's `$PORT`, serves the
+static files from `/srv`, gzips/zstd-compresses responses, and resolves clean
+URLs (`/rooms` → `rooms.html`).
+
+**One-time setup on Railway:**
+
+1. **New Project → Deploy from GitHub repo →** pick `simboni/zuriplace`.
+   Railway reads `railway.json` and builds with the `Dockerfile` automatically.
+2. Once the first deploy is green, open **Settings → Networking → Generate
+   Domain** to get a `*.up.railway.app` URL (smoke-test it).
+3. **Custom domain:** Settings → Networking → **Custom Domain** →
+   `zuriplaceresort.com` (add `www` too). Railway shows a CNAME target —
+   create that CNAME at your DNS provider (for an apex/root domain, use the
+   provider's ALIAS/ANAME or flattened-CNAME record). TLS is issued
+   automatically once DNS resolves.
+
+Every push to the deployed branch triggers a fresh Railway build, so the live
+site stays in sync with the repo.
+
+Run the container locally the same way Railway does:
+
+```bash
+docker build -t zuri-site .
+docker run --rm -e PORT=8080 -p 8080:8080 zuri-site
+# → http://localhost:8080
+```
+
+### GitHub Pages (free fallback / staging)
+
+`.github/workflows/deploy.yml` also publishes to a `gh-pages` branch on every
+push. To use it, go to **Settings → Pages → Build and deployment**, set
+*Source* to **Deploy from a branch** and pick **`gh-pages` / (root)**; the site
+then serves at <https://simboni.github.io/zuriplace/>. Keep it as a free staging
+mirror, or delete `.github/workflows/deploy.yml` if you only want Railway.
 
 ## Run locally
 

@@ -1,0 +1,7 @@
+.git
+.github
+node_modules
+*.md
+scratchpad
+.DS_Store
+Thumbs.db

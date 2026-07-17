@@ -1,0 +1,23 @@
+# Caddy static server for Zuri Hotels — used by Railway (and any container host).
+# Binds to the platform-provided $PORT (falls back to 80 for local runs).
+{
+	admin off
+	auto_https off
+	persist_config off
+}
+
+:{$PORT:80} {
+	root * /srv
+	encode zstd gzip
+
+	# Clean URLs: /rooms -> rooms.html, / -> index.html. Unmatched paths
+	# fall through to file_server, which returns a natural 404.
+	try_files {path} {path}.html {path}/
+	file_server
+
+	header {
+		Cache-Control "public, max-age=3600"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+	}
+}
