@@ -10,6 +10,14 @@
 	root * /srv
 	encode zstd gzip
 
+	# Keep URLs extensionless: bounce any explicit .html (and /index) to
+	# the clean path with a permanent redirect.
+	@indexpage path /index /index.html
+	redir @indexpage / 301
+
+	@htmlext path_regexp html ^/(.+)\.html$
+	redir @htmlext /{re.html.1} 301
+
 	# Clean URLs: /rooms -> rooms.html, / -> index.html. Unmatched paths
 	# fall through to file_server, which returns a natural 404.
 	try_files {path} {path}.html {path}/
